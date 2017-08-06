@@ -37,7 +37,7 @@ var populateList = function(giphs){
   divGiphs.id = 'giphs1';
 
   giphs.forEach(function(giph){
-    img = createImg(giph.images.fixed_height_small.url);
+    img = createImg(giph.images.fixed_height_small.url, 100);
     divGiphs.appendChild(img);
   });
   divTrending.appendChild(divGiphs);
@@ -51,7 +51,7 @@ var populateSearch = function(giphs){
   var divGiphs = document.createElement('div');
   divGiphs.id = 'giphs2';
   giphs.forEach(function(giph){
-    img = createImg(giph.images.fixed_height_small.url);
+    img = createImg(giph.images.fixed_height_small.url, 100);
     divGiphs.appendChild(img);
   });
   divSearch.appendChild(divGiphs);
@@ -65,14 +65,14 @@ var populateRandom = function(giphR){
   var divGiphs = document.createElement('div');
   divGiphs.id = 'giph-random';
   console.log(giphR);
-  img = createImg(giphR.fixed_height_small_url);
+  img = createImg(giphR.fixed_height_downsampled_url, 200);
   divGiphs.appendChild(img);
   divRandom.appendChild(divGiphs);
 };
 
-var createImg = function(imgUrl) {
+var createImg = function(imgUrl, height) {
   var img = document.createElement("img");
-  img.height = 100;
+  img.height = height;
   img.src = imgUrl;
   img.hspace = 5;
   return img;
